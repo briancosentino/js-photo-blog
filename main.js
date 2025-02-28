@@ -15,6 +15,25 @@ Bonus
 rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano man mano una sotto l’altra ed il titolo abbia una dimensione adeguata
 Note
 Non siete obbligati a usare Bootstrap: siete liberi di decidere come gestire lo stile :slightly_smiling_face:
-Buon divertimento e confermate lettura come al solito :baby-yoda: (edited) 
-Zip
   */
+
+//select DOM elements
+
+const rowEl = document.querySelector('.row')
+
+fetch('https://lanciweb.github.io/demo/api/pictures/')
+.then(res=>res.json())
+.then(data=>{
+    data.forEach(data=>{
+        rowEl.innerHTML += `<div class="col-12 col-md-6 col-lg-4">
+                    <div id="card" class="card rel  m-auto border-0 rounded-0 ">
+                        <img src=${data.url} alt="">
+                        <div class="content-wrapper mt-2">
+                            <p class="mb-0 ">${data.date}</p>
+                            <h2 class="fw-semibold mb-0" >${data.title}</h2>
+                        </div>
+                    </div>
+                </div>`
+    })
+    
+}).catch(err=> console.log(err))
