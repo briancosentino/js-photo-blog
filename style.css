@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&family=Sometype+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header-bg{
+    background-image: url(./assets_day1/img/wall.png);
+    /* height: 10rem; */
+}
+h1,h2{
+    font-family: "Edu TAS Beginner", serif;
+
+}
+h1{
+    font-size: 4.5rem;
+}
+p{
+    font-family: "Sometype Mono", serif;
+    font-size: .8rem;
+    color: grey;
+}
+main{
+    background-image: url(./assets_day1/img/cork.png);
+}
+#card{
+  width: 100%;
+  padding: .8rem;
+
+}
+.pin{
+    width: 25px;
+    left: 50%;
+    top: ;
+    transform: translate(-50%, -30%);
+}
+.img-wrapper{
+    width: 60%;
+    @media screen and (min-width: 768px) {
+        width: 85%;
+        max-width: 850px;
+    }
+}
