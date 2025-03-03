@@ -28,8 +28,9 @@ fetch('https://lanciweb.github.io/demo/api/pictures/')
     data.forEach(data=>{
         /* const col = document.createElement('div')
         col.classList.add('col-12', 'col-md-6', 'd-none', 'col-lg-4') */
-        rowEl.innerHTML += `<div class="col-12 col-md-6 col-lg-4">
-                    <div id="card" class="card rel  m-auto border-0 rounded-0 ">
+        rowEl.innerHTML += `<div class="col-12 rotate10 col-md-6 col-lg-4">
+                    <div id="card" class="card position-relative  m-auto border-0 rounded-0 ">
+                        <img class="pin position-absolute" src="./assets_day1/img/pin.svg" alt="pin">
                         <img src=${data.url} alt="">
                         <div class="content-wrapper mt-2">
                             <p class="mb-0 ">${data.date}</p>
@@ -51,11 +52,18 @@ fetch('https://lanciweb.github.io/demo/api/pictures/')
     const cards = rowEl.querySelectorAll('.card')
     cards.forEach(card=>{
         card.addEventListener('click', ()=>{
-            const imageUrl = card.querySelector('img')
-            overlayEl.innerHTML = `<div class="modal-img">
-                    <img src=${imageUrl.src} alt="">
+            const imageUrl = card.querySelectorAll('img')
+            overlayEl.innerHTML = `<button class="btn btn-primary mb-3">Chiudi</button>
+                 <div class="modal-img">
+                    <img src=${imageUrl[1].src} alt="">
                  </div>`
             overlayEl.classList.remove('d-none');
+
+            const overlayButton = overlayEl.querySelector('button')
+            overlayButton.addEventListener('click', ()=>{
+                overlayEl.classList.add('d-none')
+            })
+         
 
         })
     })

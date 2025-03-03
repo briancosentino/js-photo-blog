@@ -26,12 +26,14 @@ main{
 #card{
   width: 100%;
   padding: .8rem;
+  cursor: pointer;
+  box-shadow: 0 0  5px;
 
 }
 .pin{
     width: 25px;
     left: 50%;
-    top: ;
+    top: 0;
     transform: translate(-50%, -30%);
 }
 .img-wrapper{
@@ -51,4 +53,21 @@ main{
 }
 .d-none{
     display: none;
+}
+.modal-img{
+    img{
+        max-width: 100%;
+    }
+    max-width: 600px;
+    max-height: 600px;
+}
+
+.rotate10:hover{
+    rotate: 10deg;
+    transform: scale(1.1);
+    box-shadow: 1 1 5px;
+    transition: .2s;
+    .pin{
+        display: none;
+    }
 }
