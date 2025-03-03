@@ -20,11 +20,14 @@ Non siete obbligati a usare Bootstrap: siete liberi di decidere come gestire lo 
 //select DOM elements
 
 const rowEl = document.querySelector('.row')
+const overlayEl = document.getElementById('overlay')
 
 fetch('https://lanciweb.github.io/demo/api/pictures/')
 .then(res=>res.json())
 .then(data=>{
     data.forEach(data=>{
+        /* const col = document.createElement('div')
+        col.classList.add('col-12', 'col-md-6', 'd-none', 'col-lg-4') */
         rowEl.innerHTML += `<div class="col-12 col-md-6 col-lg-4">
                     <div id="card" class="card rel  m-auto border-0 rounded-0 ">
                         <img src=${data.url} alt="">
@@ -34,6 +37,31 @@ fetch('https://lanciweb.github.io/demo/api/pictures/')
                         </div>
                     </div>
                 </div>`
+            
+          /*   rowEl.innerHTML += col.innerHTML = `<div id="card" class="card rel  m-auto border-0 rounded-0 ">
+                        <img src=${data.url} alt="">
+                        <div class="content-wrapper mt-2">
+                            <p class="mb-0 ">${data.date}</p>
+                            <h2 class="fw-semibold mb-0" >${data.title}</h2>
+                        </div>
+                    </div>`
+         */
+        
+    })
+    const cards = rowEl.querySelectorAll('.card')
+    cards.forEach(card=>{
+        card.addEventListener('click', ()=>{
+            const imageUrl = card.querySelector('img')
+            overlayEl.innerHTML = `<div class="modal-img">
+                    <img src=${imageUrl.src} alt="">
+                 </div>`
+            overlayEl.classList.remove('d-none');
+
+        })
     })
     
+    
 }).catch(err=> console.log(err))
+
+
+
